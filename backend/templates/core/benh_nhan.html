@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách bệnh nhân</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            background: #19718a;
+            color: white;
+            padding: 25px 40px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            margin: 8px 0 0;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #176b82;
+        }
+
+        .btn {
+            background: #176b82;
+            color: white;
+            padding: 12px 18px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: #19718a;
+            color: white;
+            padding: 14px;
+            text-align: left;
+        }
+
+        td {
+            padding: 13px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f1f7f9;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Hệ thống quản lý bệnh viện</h1>
+    <p>Danh sách bệnh nhân</p>
+</header>
+
+<div class="container">
+
+    <div class="top">
+        <h2>Danh sách bệnh nhân</h2>
+
+        <a href="/" class="btn">
+            ← Về trang chủ
+        </a>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Họ tên</th>
+                <th>Ngày sinh</th>
+                <th>Giới tính</th>
+                <th>Số điện thoại</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for benh_nhan in benh_nhans %}
+            <tr>
+                <td>{{ benh_nhan.id }}</td>
+                <td>{{ benh_nhan.ho_ten }}</td>
+                <td>{{ benh_nhan.ngay_sinh }}</td>
+                <td>{{ benh_nhan.gioi_tinh }}</td>
+                <td>{{ benh_nhan.so_dien_thoai }}</td>
+                <td>{{ benh_nhan.dia_chi }}</td>
+                <td>{{ benh_nhan.email }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="7">Chưa có bệnh nhân nào.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

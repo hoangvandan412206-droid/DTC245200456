@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Danh sách hồ sơ bệnh án</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        .header {
+            background: #19758d;
+            color: white;
+            padding: 28px 40px;
+        }
+
+        .header h1 {
+            margin: 0 0 8px;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .container {
+            padding: 42px 40px;
+        }
+
+        .title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .title-row h2 {
+            margin: 0;
+            color: #126b83;
+            font-size: 26px;
+        }
+
+        .back-button {
+            background: #176f87;
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        .back-button:hover {
+            background: #125c70;
+        }
+
+        .table-wrapper {
+            background: white;
+            overflow-x: auto;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px;
+        }
+
+        thead {
+            background: #19758d;
+            color: white;
+        }
+
+        th {
+            padding: 14px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        tbody tr:hover {
+            background: #f5f5f5;
+        }
+
+        .empty {
+            padding: 25px;
+            text-align: center;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 22px;
+            }
+
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                padding: 25px 20px;
+            }
+
+            .title-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .title-row h2 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Hệ thống quản lý bệnh viện</h1>
+        <p>Danh sách hồ sơ bệnh án</p>
+    </header>
+
+    <main class="container">
+
+        <div class="title-row">
+            <h2>Danh sách hồ sơ bệnh án</h2>
+
+            <a href="/" class="back-button">
+                ← Về trang chủ
+            </a>
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Bệnh nhân</th>
+                        <th>Bác sĩ</th>
+                        <th>Ngày khám</th>
+                        <th>Chẩn đoán</th>
+                        <th>Ghi chú</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for hs in ho_so %}
+                    <tr>
+                        <td>{{ hs.id }}</td>
+
+                        <td>
+                            {{ hs.benh_nhan }}
+                        </td>
+
+                        <td>
+                            {{ hs.bac_si }}
+                        </td>
+
+                        <td>
+                            {{ hs.ngay_kham|date:"d/m/Y" }}
+                        </td>
+
+                        <td>
+                            {{ hs.chan_doan }}
+                        </td>
+
+                        <td>
+                            {{ hs.ghi_chu }}
+                        </td>
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="6" class="empty">
+                            Chưa có hồ sơ bệnh án nào.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
