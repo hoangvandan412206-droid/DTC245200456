@@ -2,6 +2,10 @@ from django.db import models
 
 
 class Khoa(models.Model):
+    class Meta:
+        verbose_name = 'Khoa'
+        verbose_name_plural = 'Khoa'
+
     ten_khoa = models.CharField(max_length=100)
     mo_ta = models.TextField(blank=True)
 
@@ -10,6 +14,10 @@ class Khoa(models.Model):
 
 
 class BacSi(models.Model):
+    class Meta:
+        verbose_name = 'Bác sĩ'
+        verbose_name_plural = 'Bác sĩ'
+
     ho_ten = models.CharField(max_length=100)
     chuyen_khoa = models.CharField(max_length=100)
     so_dien_thoai = models.CharField(max_length=20)
@@ -27,6 +35,10 @@ class BacSi(models.Model):
 
 
 class BenhNhan(models.Model):
+    class Meta:
+        verbose_name = 'Bệnh nhân'
+        verbose_name_plural = 'Bệnh nhân'
+
     ho_ten = models.CharField(max_length=100)
     ngay_sinh = models.DateField()
     gioi_tinh = models.CharField(max_length=20)
@@ -40,6 +52,10 @@ class BenhNhan(models.Model):
 
 
 class LichKham(models.Model):
+    class Meta:
+        verbose_name = 'Lịch khám'
+        verbose_name_plural = 'Lịch khám'
+
     TRANG_THAI_CHOICES = [
         ("cho", "Chờ khám"),
         ("da_xac_nhan", "Đã xác nhận"),
@@ -71,6 +87,10 @@ class LichKham(models.Model):
 
 
 class HoSoBenhAn(models.Model):
+    class Meta:
+        verbose_name = 'Hồ sơ bệnh án'
+        verbose_name_plural = 'Hồ sơ bệnh án'
+
     benh_nhan = models.ForeignKey(
         BenhNhan,
         on_delete=models.CASCADE,
@@ -91,6 +111,10 @@ class HoSoBenhAn(models.Model):
 
 
 class Thuoc(models.Model):
+    class Meta:
+        verbose_name = 'Thuốc'
+        verbose_name_plural = 'Thuốc'
+
     ten_thuoc = models.CharField(max_length=150)
     don_vi = models.CharField(max_length=50)
     gia = models.DecimalField(max_digits=12, decimal_places=2)
@@ -101,6 +125,10 @@ class Thuoc(models.Model):
 
 
 class DonThuoc(models.Model):
+    class Meta:
+        verbose_name = 'Đơn thuốc'
+        verbose_name_plural = 'Đơn thuốc'
+
     benh_nhan = models.ForeignKey(
         BenhNhan,
         on_delete=models.CASCADE,
@@ -119,6 +147,10 @@ class DonThuoc(models.Model):
 
 
 class ChiTietDonThuoc(models.Model):
+    class Meta:
+        verbose_name = 'Chi tiết đơn thuốc'
+        verbose_name_plural = 'Chi tiết đơn thuốc'
+
     don_thuoc = models.ForeignKey(
         DonThuoc,
         on_delete=models.CASCADE,

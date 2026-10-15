@@ -12,3 +12,23 @@ media/
 *.log
 .idea/
 .vscode/
+
+# Backup and temporary files
+*.bak
+*.swp
+*.swo
+*~
+*.before-*
+*.bak-*
+
+# Backup directories
+core.backup/
+*.backup/
+
+# Local secrets
+.env.*
+!.env.example
+
+# Local development files
+.DS_Store
+Thumbs.db

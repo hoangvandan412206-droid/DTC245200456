@@ -1,0 +1,488 @@
+/* MediCare Admin - Unified Design */
+
+:root {
+    --primary: #102750;
+    --secondary: #183968;
+    --accent: #2458f5;
+    --primary-fg: #ffffff;
+
+    --body-bg: #f3f6fc;
+    --body-fg: #172b4d;
+
+    --header-bg: #102750;
+    --header-color: #ffffff;
+
+    --breadcrumbs-bg: #ffffff;
+    --breadcrumbs-fg: #64748b;
+
+    --link-fg: #2458f5;
+    --link-hover-color: #173cbd;
+
+    --border-color: #e1e8f3;
+    --hairline-color: #e1e8f3;
+
+    --selected-bg: #e9f0ff;
+
+    --button-bg: #2458f5;
+    --button-hover-bg: #1948d9;
+
+    --default-button-bg: #2458f5;
+    --default-button-hover-bg: #1948d9;
+}
+
+/* General */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f6fc;
+    color: #172b4d;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header */
+
+#header {
+    background: #102750;
+    color: #ffffff;
+    padding: 22px 28px;
+    border-bottom: none;
+}
+
+#site-name,
+#site-name a,
+#site-name a:link,
+#site-name a:visited {
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 800;
+}
+
+#user-tools,
+#user-tools a,
+#user-tools a:link,
+#user-tools a:visited {
+    color: #ffffff;
+}
+
+/* Breadcrumbs */
+
+div.breadcrumbs {
+    background: #ffffff;
+    color: #64748b;
+    border-bottom: 1px solid #e1e8f3;
+    padding: 16px 28px;
+}
+
+div.breadcrumbs a {
+    color: #2458f5;
+}
+
+/* Content */
+
+#content {
+    padding: 30px;
+}
+
+#content h1 {
+    color: #102750;
+    font-size: 26px;
+    font-weight: 750;
+    margin-bottom: 24px;
+}
+
+/* Sidebar */
+
+#nav-sidebar {
+    background: #102750;
+    border-right: none;
+    padding: 18px 12px;
+}
+
+#nav-sidebar .module {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+#nav-sidebar .module caption,
+#nav-sidebar .module th {
+    background: transparent;
+    color: #a9bfe7;
+}
+
+#nav-sidebar a,
+#nav-sidebar a:link,
+#nav-sidebar a:visited {
+    color: #e3ecff;
+}
+
+#nav-sidebar .current-model {
+    background: #2458f5;
+    border-radius: 8px;
+}
+
+#nav-sidebar .current-model a {
+    color: #ffffff;
+}
+
+#nav-sidebar tr:hover {
+    background: #1b3a70;
+}
+
+#nav-sidebar .current-app .section {
+    color: #ffffff;
+}
+
+#nav-filter {
+    background: #183968;
+    color: #ffffff;
+    border: 1px solid #315080;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Cards */
+
+.module,
+#changelist,
+#changelist-filter {
+    background: #ffffff;
+    border: 1px solid #e1e8f3;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(16,39,80,.04);
+}
+
+.module {
+    overflow: hidden;
+}
+
+.module h2,
+.module caption {
+    background: #f8faff;
+    color: #102750;
+    font-weight: 700;
+    padding: 14px 18px;
+}
+
+/* Tables */
+
+#changelist table {
+    width: 100%;
+}
+
+#changelist table thead th {
+    background: #edf2fc;
+    color: #334766;
+    padding: 13px;
+}
+
+#changelist table tbody td,
+#changelist table tbody th {
+    padding: 13px;
+    border-bottom: 1px solid #e8edf5;
+}
+
+#changelist table tbody tr:hover {
+    background: #f2f6ff;
+}
+
+/* Filter */
+
+#changelist-filter {
+    background: #ffffff;
+}
+
+#changelist-filter h2 {
+    background: #f0f4fd;
+    color: #102750;
+    padding: 15px;
+}
+
+#changelist-filter h3 {
+    color: #334766;
+}
+
+/* Forms */
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+select,
+textarea {
+    background: #ffffff;
+    color: #172b4d;
+    border: 1px solid #cbd6e7;
+    border-radius: 8px;
+    padding: 9px 12px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #2458f5;
+    outline-color: #2458f5;
+}
+
+/* Buttons */
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button,
+.object-tools a {
+    background: #2458f5;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+}
+
+.button:hover,
+input[type="submit"]:hover,
+.object-tools a:hover {
+    background: #1948d9;
+}
+
+.submit-row {
+    background: #ffffff;
+    border: 1px solid #e1e8f3;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+/* Dashboard */
+
+.dashboard #content-main {
+    width: min(100%, 960px);
+}
+
+.dashboard #content-related {
+    width: min(100%, 320px);
+}
+
+.dashboard .module {
+    margin-bottom: 22px;
+}
+
+.dashboard .module table td,
+.dashboard .module table th {
+    padding: 14px;
+}
+
+/* Hide decorative icons */
+
+.addlink::before,
+.changelink::before,
+.deletelink::before,
+.object-tools a::before {
+    display: none !important;
+}
+
+.addlink,
+.changelink,
+.deletelink {
+    background-image: none !important;
+}
+
+/* Login */
+
+body.login {
+    background: #f3f6fc;
+}
+
+body.login #container {
+    background: #ffffff;
+    border: 1px solid #e1e8f3;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 16px 45px rgba(16,39,80,.12);
+}
+
+body.login #header {
+    background: #102750;
+}
+
+body.login #content {
+    padding: 30px;
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    #header {
+        padding: 16px;
+    }
+
+    #content {
+        padding: 18px;
+    }
+
+    #site-name,
+    #site-name a {
+        font-size: 19px;
+    }
+}
+
+/* ===== MEDICARE DASHBOARD GRID FIX ===== */
+
+@media (min-width: 1101px) {
+
+    body.dashboard #content {
+        display: grid !important;
+        grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+        column-gap: 28px;
+        align-items: start;
+        max-width: 1500px !important;
+        width: auto !important;
+        margin: 0 auto !important;
+        box-sizing: border-box;
+    }
+
+    body.dashboard #content > h1 {
+        grid-column: 1 / -1;
+        margin-bottom: 0;
+    }
+
+    body.dashboard #content-main {
+        grid-column: 1;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0;
+        float: none !important;
+    }
+
+    body.dashboard #content-related {
+        grid-column: 2;
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0;
+        float: none !important;
+        margin: 0 !important;
+    }
+
+    body.dashboard #content-main .module {
+        width: 100% !important;
+        max-width: none !important;
+        box-sizing: border-box;
+    }
+
+    body.dashboard #content-main .module table {
+        width: 100% !important;
+        table-layout: auto !important;
+    }
+
+    body.dashboard #content-main .module th {
+        width: auto !important;
+        min-width: 180px;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+    }
+
+    body.dashboard #content-main .module td {
+        width: 110px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    body.dashboard #content-main,
+    body.dashboard #content-related {
+        width: 100% !important;
+        max-width: none !important;
+        float: none !important;
+        margin: 0 0 24px !important;
+    }
+}
+
+/* ===== MEDICARE ADMIN HEADING FIX ===== */
+
+/* Tieu de nhom trong trang quan tri */
+body.dashboard #content-main .module caption,
+body.dashboard #content-main .module caption a,
+body.dashboard #content-main .module caption a:link,
+body.dashboard #content-main .module caption a:visited,
+body.dashboard #content-main .module h2 {
+    background: #e5edff !important;
+    color: #102750 !important;
+    font-weight: 700 !important;
+}
+
+/* Dam bao tieu de khong bi an */
+body.dashboard #content-main .module caption a:hover {
+    color: #2458f5 !important;
+}
+
+
+/* FIX: Tang do tuong phan menu quan tri */
+#nav-sidebar .module a,
+#nav-sidebar .module a:link,
+#nav-sidebar .module a:visited {
+    color: #172554 !important;
+    opacity: 1 !important;
+}
+
+#nav-sidebar .module th a,
+#nav-sidebar .module td a {
+    color: #172554 !important;
+    opacity: 1 !important;
+}
+
+#nav-sidebar .module .current-model,
+#nav-sidebar .module .current-model a {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+
+#nav-sidebar .module tr:not(.current-model):hover {
+    background: #dbeafe !important;
+}
+
+
+/* Hien thi ro tieu de nhom trong sidebar */
+#nav-sidebar .module caption,
+#nav-sidebar .module caption a,
+#nav-sidebar .module caption a:link,
+#nav-sidebar .module caption a:visited,
+#nav-sidebar .module th[scope="row"] {
+    color: #ffffff;
+}
+
+/* Tieu de nhom tren nen xanh dam */
+#nav-sidebar .module caption {
+    background: transparent !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    opacity: 1 !important;
+}
+
+#nav-sidebar .module caption a {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* FIX FINAL - Sidebar group headings */
+#nav-sidebar .module caption,
+#nav-sidebar .module caption a,
+#nav-sidebar .module caption a:link,
+#nav-sidebar .module caption a:visited,
+#nav-sidebar .module h2,
+#nav-sidebar .module h2 a {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+#nav-sidebar .module caption,
+#nav-sidebar .module h2 {
+    background: transparent !important;
+}

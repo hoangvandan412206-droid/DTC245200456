@@ -1,0 +1,250 @@
+<!DOCTYPE html><html lang="vi"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}MediCare{% endblock %} | MediCare</title><style>
+:root{--navy:#101d3a;--navy2:#192a52;--accent:#6366f1;--accent2:#06b6d4;--bg:#f4f6fc;--text:#202b46;--muted:#71809a;--border:#e7eaf3;--white:#fff}*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}a{text-decoration:none;color:inherit}.layout{display:flex;min-height:100vh}.sidebar{width:260px;flex:none;background:linear-gradient(180deg,var(--navy),var(--navy2));color:#bfc9e2;padding:27px 17px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:12px;color:white;font-size:24px;font-weight:800;padding:4px 13px 28px;letter-spacing:-.8px}.brand-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#6d72ff,#12c4db);color:white;font-size:25px}.side-label{font-size:10px;font-weight:800;letter-spacing:2px;color:#7f92bc;padding:16px 14px 11px}.nav-link{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:11px;margin-bottom:5px;font-size:14px;font-weight:600;transition:.2s}.nav-link:hover,.nav-link.active{background:#ffffff19;color:white}.nav-link.active{box-shadow:inset 3px 0 #78d4ff}.nav-icon{font-size:18px;width:22px;text-align:center}.sidebar-footer{margin-top:40px;padding:16px 13px;border-top:1px solid #ffffff20;font-size:12px;color:#9eacd0}.main{flex:1;min-width:0}.topbar{display:flex;align-items:center;justify-content:space-between;background:white;padding:19px 35px;border-bottom:1px solid var(--border)}.crumb{font-size:13px;color:var(--muted)}.crumb strong{color:var(--text)}.top-pill{font-size:12px;font-weight:700;color:#0c8e81;background:#e7faf6;padding:9px 13px;border-radius:30px}.content{max-width:1450px;margin:auto;padding:33px 35px}.page-title{margin:0;font-size:29px;letter-spacing:-.9px;color:#17233f}.subtitle{margin:8px 0 27px;color:var(--muted);font-size:14px}.hero{background:linear-gradient(115deg,#343a9e,#6366f1 65%,#7e89fc);color:white;border-radius:20px;padding:33px 38px;box-shadow:0 12px 25px #5054ba24;margin-bottom:26px;position:relative;overflow:hidden}.hero:after{content:'+';position:absolute;right:60px;top:-60px;font-size:250px;font-weight:200;color:#ffffff12}.hero .eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#d6dbff}.hero h2{font-size:30px;margin:10px 0}.hero p{margin:0;max-width:610px;line-height:1.65;color:#e5e9ff}.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:26px}.stat-card{background:white;border:1px solid var(--border);border-radius:17px;padding:22px;box-shadow:0 5px 15px #1a2a5108;transition:.2s}.stat-card:hover{transform:translateY(-3px);box-shadow:0 10px 25px #1a2a5114}.stat-icon{display:grid;place-items:center;width:45px;height:45px;border-radius:12px;background:#eeeeff;color:#6265e9;font-size:22px;margin-bottom:15px}.stat-card:nth-child(3n+2) .stat-icon{background:#e4f8fc;color:#089db7}.stat-card:nth-child(3n+3) .stat-icon{background:#f5ebff;color:#9a5cda}.stat-label{font-size:13px;color:var(--muted);font-weight:600}.stat-value{font-size:32px;font-weight:800;margin-top:5px;letter-spacing:-1px}.panel{background:white;border:1px solid var(--border);border-radius:17px;box-shadow:0 5px 18px #1a2a5109;overflow:hidden;margin-bottom:24px}.panel-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:22px 24px;border-bottom:1px solid var(--border)}.panel-header h2{font-size:18px;margin:0}.panel-header p{font-size:13px;color:var(--muted);margin:6px 0 0}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding:22px}.quick-link{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px;border:1px solid var(--border);border-radius:12px;font-weight:650;font-size:14px;transition:.2s}.quick-link:hover{border-color:#a5a7fa;background:#f8f8ff;color:#5256d4}.quick-link span{color:#8995af}.table-scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:700px}th{text-align:left;padding:16px 20px;background:#f8f9fe;font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:#74809a;white-space:nowrap}td{padding:17px 20px;border-top:1px solid #eff1f6;font-size:13px;color:#37435d;vertical-align:middle}tbody tr:hover{background:#fafbff}td:first-child{font-weight:650;color:#5559d9}.empty{text-align:center;padding:38px!important;color:#8290a6}.action{display:inline-block;border-radius:10px;background:#eeefff;color:#5357d2;font-weight:700;font-size:13px;padding:11px 15px}.action:hover{background:#e1e3ff}.footer-note{font-size:12px;color:#9aa5b9;text-align:center;padding:15px}.status-chip{display:inline-block;background:#eef0ff;color:#5458b6;border-radius:20px;padding:6px 11px;font-weight:700;font-size:12px}@media(max-width:1050px){.sidebar{width:215px}.stats,.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:25px}}@media(max-width:700px){.layout{display:block}.sidebar{width:100%;height:auto;position:relative;padding:12px}.brand{padding:5px 10px 10px}.side-label,.sidebar-footer{display:none}.nav{display:flex;overflow-x:auto;gap:4px}.nav-link{white-space:nowrap;margin:0;padding:10px;font-size:12px}.nav-icon{font-size:15px;width:auto}.topbar{padding:15px}.content{padding:18px}.page-title{font-size:24px}.hero{padding:23px}.hero h2{font-size:23px}.stats,.quick-grid{grid-template-columns:1fr}.panel-header{align-items:flex-start;flex-direction:column}}
+</style>
+<style id="medicare-redesign">
+:root {
+    --navy:#0b2450;
+    --navy2:#102f66;
+    --accent:#245df5;
+    --accent2:#1d4ed8;
+    --bg:#f4f7fc;
+    --text:#152a4c;
+    --muted:#64748b;
+    --border:#e2e8f0;
+}
+body {background:var(--bg);color:var(--text)}
+.sidebar {
+    width:245px;
+    background:linear-gradient(180deg,#0a234e,#102f66);
+    padding:24px 14px;
+}
+.brand {font-size:25px;letter-spacing:-.6px}
+.nav-link {border-radius:8px;padding:13px 16px}
+.nav-link:hover,.nav-link.active {
+    background:#2563eb;
+    color:white;
+    box-shadow:none;
+}
+.topbar {
+    padding:21px 30px;
+    background:white;
+    box-shadow:0 1px 5px #102a5010;
+}
+.content {max-width:none;padding:30px}
+.page-title {color:#10254d;font-size:28px}
+.subtitle {color:#64748b}
+.hero {
+    background:linear-gradient(110deg,#102f66,#245df5);
+    border-radius:14px;
+}
+.hero:after {display:none}
+.stats {grid-template-columns:repeat(3,minmax(0,1fr))}
+.stat-card,.panel {
+    border:1px solid #e2e8f0;
+    border-radius:12px;
+    box-shadow:0 4px 15px #102a500a;
+}
+.stat-card {padding:24px}
+.stat-icon {display:none!important}
+.stat-label {font-size:14px;color:#64748b}
+.stat-value {color:#1d4ed8}
+.quick-link {
+    border-radius:9px;
+    background:#f8fbff;
+    padding:20px;
+}
+.quick-link span {display:none}
+.panel-header {padding:22px 25px}
+.panel-header h2 {color:#10254d}
+.action {
+    background:#245df5;
+    color:white;
+    border-radius:7px;
+    padding:11px 18px;
+}
+.action:hover {background:#1d4ed8;color:white}
+table {min-width:680px}
+th {
+    background:#edf3ff;
+    color:#334766;
+    padding:15px 17px;
+}
+td {padding:16px 17px}
+td:first-child {color:#245df5}
+tbody tr:hover {background:#f7faff}
+.medicare-toolbar {
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    align-items:center;
+    padding:18px 22px;
+    border-bottom:1px solid #e2e8f0;
+}
+.medicare-search {
+    flex:1;
+    min-width:200px;
+    border:1px solid #d6dfec;
+    border-radius:8px;
+    padding:12px 15px;
+    font:inherit;
+    outline:none;
+}
+.medicare-search:focus {border-color:#245df5}
+.medicare-button {
+    display:inline-block;
+    background:#245df5;
+    color:white;
+    border-radius:7px;
+    padding:11px 16px;
+    font-size:13px;
+    font-weight:650;
+    text-decoration:none;
+}
+.medicare-button:hover {background:#1d4ed8;color:white}
+.medicare-button.secondary {
+    background:#eaf0ff;
+    color:#2452c5;
+}
+.medicare-button.danger {
+    background:#fff0f0;
+    color:#c62828;
+}
+.medicare-actions {display:flex;gap:7px;white-space:nowrap}
+.medicare-actions .medicare-button {padding:7px 11px}
+.medicare-empty {
+    padding:20px;
+    text-align:center;
+    color:#64748b;
+}
+@media(max-width:1050px) {
+    .sidebar {width:210px}
+}
+@media(max-width:700px) {
+    .sidebar {width:100%}
+    .stats {grid-template-columns:1fr}
+    .content {padding:18px}
+    .medicare-toolbar {align-items:stretch}
+    .medicare-search {width:100%}
+}
+</style>
+
+</head><body><div class="layout"><aside class="sidebar"><a class="brand" href="/">MediCare</a><div class="side-label">ĐIỀU HƯỚNG</div><nav class="nav"><a class="nav-link {% if active_page == 'trang_chu' %}active{% endif %}" href="/">Tổng quan</a>
+<a class="nav-link {% if active_page == 'bac_si' %}active{% endif %}" href="/bac-si/">Bác sĩ</a>
+<a class="nav-link {% if active_page == 'benh_nhan' %}active{% endif %}" href="/benh-nhan/">Bệnh nhân</a>
+<a class="nav-link {% if active_page == 'lich_kham' %}active{% endif %}" href="/lich-kham/">Lịch khám</a>
+<a class="nav-link {% if active_page == 'ho_so' %}active{% endif %}" href="/ho-so/">Hồ sơ bệnh án</a>
+<a class="nav-link {% if active_page == 'thuoc' %}active{% endif %}" href="/thuoc/">Kho thuốc</a>
+<a class="nav-link {% if active_page == 'don_thuoc' %}active{% endif %}" href="/don-thuoc/">Đơn thuốc</a>
+<a class="nav-link {% if active_page == 'chi_tiet_don_thuoc' %}active{% endif %}" href="/chi-tiet-don-thuoc/">Chi tiết đơn thuốc</a></nav><div class="sidebar-footer">MediCare | Quản lý bệnh viện</div></aside><div class="main"><header class="topbar"><div class="crumb">MediCare / <strong>{% block breadcrumb %}Tổng quan{% endblock %}</strong></div><span class="top-pill">Đang hoạt động</span></header><main class="content">{% block content %}{% endblock %}<div class="footer-note">© MediCare | Giao diện quản lý bệnh viện</div></main></div></div>
+<script id="medicare-redesign-js">
+document.addEventListener("DOMContentLoaded", function () {
+    const models = {
+        "/bac-si/": "bacsi",
+        "/benh-nhan/": "benhnhan",
+        "/lich-kham/": "lichkham",
+        "/ho-so/": "hosobenhan",
+        "/thuoc/": "thuoc",
+        "/don-thuoc/": "donthuoc",
+        "/chi-tiet-don-thuoc/": "chitietdonthuoc"
+    };
+
+    const model = models[window.location.pathname];
+    if (!model) return;
+
+    const table = document.querySelector(".content table");
+    if (!table) return;
+
+    const panel = table.closest(".panel");
+    const scroll = table.closest(".table-scroll") || table.parentElement;
+    if (!panel || !scroll) return;
+
+    const adminBase = "/admin/core/" + model + "/";
+    const toolbar = document.createElement("div");
+    toolbar.className = "medicare-toolbar";
+
+    const search = document.createElement("input");
+    search.type = "search";
+    search.className = "medicare-search";
+    search.placeholder = "Tìm kiếm trong danh sách...";
+    search.setAttribute("aria-label", "Tìm kiếm trong danh sách");
+
+    const add = document.createElement("a");
+    add.className = "medicare-button";
+    add.href = adminBase + "add/";
+    add.textContent = "Thêm mới";
+
+    const manage = document.createElement("a");
+    manage.className = "medicare-button secondary";
+    manage.href = adminBase;
+    manage.textContent = "Quản lý dữ liệu";
+
+    toolbar.append(search, add, manage);
+    panel.insertBefore(toolbar, scroll);
+
+    const tbody = table.querySelector("tbody");
+    const rows = tbody ? Array.from(tbody.querySelectorAll("tr")) : [];
+
+    // Các trang danh sách hiện có cột ID đầu tiên.
+    const headers = table.querySelector("thead tr");
+    const idHeader = headers && headers.querySelector("th");
+    const hasId = idHeader && /^(id|stt)$/i.test(idHeader.textContent.trim());
+
+    if (hasId && headers) {
+        const actionHeader = document.createElement("th");
+        actionHeader.textContent = "Thao tác";
+        headers.appendChild(actionHeader);
+
+        rows.forEach(function (row) {
+            const first = row.querySelector("td");
+            const id = first ? first.textContent.trim() : "";
+
+            const cell = document.createElement("td");
+            if (/^\d+$/.test(id)) {
+                const actions = document.createElement("div");
+                actions.className = "medicare-actions";
+
+                const edit = document.createElement("a");
+                edit.className = "medicare-button secondary";
+                edit.href = adminBase + id + "/change/";
+                edit.textContent = "Sửa";
+
+                const del = document.createElement("a");
+                del.className = "medicare-button danger";
+                del.href = adminBase + id + "/delete/";
+                del.textContent = "Xóa";
+
+                actions.append(edit, del);
+                cell.appendChild(actions);
+            }
+            row.appendChild(cell);
+        });
+    }
+
+    const message = document.createElement("div");
+    message.className = "medicare-empty";
+    message.textContent = "Không tìm thấy kết quả phù hợp.";
+    message.hidden = true;
+    scroll.parentElement.appendChild(message);
+
+    search.addEventListener("input", function () {
+        const term = search.value.toLocaleLowerCase("vi").trim();
+        let visible = 0;
+
+        rows.forEach(function (row) {
+            const cells = Array.from(row.querySelectorAll("td"));
+            const content = cells.slice(0, hasId ? -1 : undefined)
+                .map(cell => cell.textContent)
+                .join(" ")
+                .toLocaleLowerCase("vi");
+
+            const match = content.includes(term);
+            row.hidden = !match;
+            if (match) visible++;
+        });
+
+        message.hidden = visible !== 0;
+    });
+});
+</script>
+
+</body></html>

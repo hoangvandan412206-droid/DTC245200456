@@ -159,3 +159,13 @@ class ChiTietDonThuocAdmin(admin.ModelAdmin):
         "thuoc__ten_thuoc",
         "lieu_dung",
     )
+
+
+admin.site.site_header = "Medicare | Quản trị bệnh viện"
+admin.site.site_title = "Medicare"
+admin.site.index_title = "Quản lý dữ liệu bệnh viện"
+
+
+# Đổi tên nhóm xác thực trên Django Admin
+from django.contrib.auth.apps import AuthConfig
+AuthConfig.verbose_name = "Quản lý tài khoản"
