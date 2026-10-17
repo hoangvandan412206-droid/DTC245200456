@@ -1,0 +1,12 @@
+apiVersion: 1
+
+providers:
+  - name: MediCare Dashboards
+    orgId: 1
+    folder: MediCare
+    type: file
+    disableDeletion: true
+    editable: true
+    updateIntervalSeconds: 30
+    options:
+      path: /var/lib/grafana/medicare-dashboards

@@ -1,0 +1,7 @@
+.env
+*.db
+*.log
+grafana-data/
+mysql-data/
+prometheus-data/
+loki-data/

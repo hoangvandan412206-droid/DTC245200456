@@ -1,0 +1,133 @@
+version: '3.8'
+
+networks:
+  monitoring:
+    driver: bridge
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - monitoring
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    depends_on:
+      - mysql
+    networks:
+      - monitoring
+  loki:
+    image: grafana/loki:2.9.8
+    container_name: loki
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3100:3100"
+    volumes:
+      - ./loki-config.yml:/etc/loki/loki-config.yaml
+      - loki_data:/loki
+    command: -config.file=/etc/loki/loki-config.yaml
+    networks:
+      - monitoring
+
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    restart: unless-stopped
+    volumes:
+      - ./promtail-config.yml:/etc/promtail/config.yml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    command: -config.file=/etc/promtail/config.yml
+    networks:
+      - monitoring
+    depends_on:
+      - loki
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - monitoring
+
+  grafana:
+    volumes:
+      - ./grafana-provisioning/dashboards:/var/lib/grafana/medicare-dashboards:ro
+      - ./grafana-provisioning/config:/etc/grafana/provisioning/dashboards:ro
+      - ./grafana-data/provisioning/datasources:/etc/grafana/provisioning/datasources:ro
+      - ./grafana-data:/var/lib/grafana
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SMTP_ENABLED: "true"
+      GF_SMTP_HOST: ${GF_SMTP_HOST}
+      GF_SMTP_USER: ${GF_SMTP_USER}
+      GF_SMTP_PASSWORD: ${GF_SMTP_PASSWORD}
+      GF_SMTP_FROM_ADDRESS: ${GF_SMTP_FROM_ADDRESS}
+      GF_SMTP_FROM_NAME: ${GF_SMTP_FROM_NAME}
+      GF_SMTP_STARTTLS_POLICY: "MandatoryStartTLS"
+    networks:
+      - monitoring
+    depends_on:
+      - loki
+  node-exporter:
+    image: prom/node-exporter:latest
+    container_name: node-exporter
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9100:9100"
+    networks:
+      - monitoring
+
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: cadvisor
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker:/var/lib/docker:ro
+    networks:
+      - monitoring
+
+  mysql-exporter:
+    image: prom/mysqld-exporter:v0.14.0
+    container_name: mysql-exporter
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9104:9104"
+    environment:
+      DATA_SOURCE_NAME: "wpuser:wppassword@tcp(mysql:3306)/wordpress"
+    networks:
+      - monitoring
+    depends_on:
+      - mysql
+volumes:
+  mysql_data:
+  loki_data:
